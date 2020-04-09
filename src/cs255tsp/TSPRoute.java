@@ -3,6 +3,10 @@ package cs255tsp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Angela Wang, Rakesh Gururaj
+ *
+ */
 public class TSPRoute {
 	private final City startingCity;
 	private City currentCity;

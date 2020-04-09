@@ -3,6 +3,10 @@ package cs255tsp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Angela Wang, Rakesh Gururaj
+ *
+ */
 public class TSPBruteForce {
 	private int numberofCities;
 	private City startingCity;
@@ -39,6 +43,12 @@ public class TSPBruteForce {
 		return numberofCities == 0 ||numberofCities==1 ? 1 : numberofCities * calculatePermutationRoutes(numberofCities-1);
 	}
 	
+	/**
+	 * @param tspRoute
+	 * @param citiesSelectedUI
+	 * This method is to find all the paths involved in brute force approach.
+	 * It will output all the paths which is equal to the number of routes returned from calculatePermutationRoutes method.
+	 */
 	void findAllPathsofTSP(TSPRoute tspRoute,List<String> citiesSelectedUI){
 		//initialiseCities(startingCity, citiesSelectedUI);
 		if(!citiesSelectedUI.isEmpty()) {
@@ -53,5 +63,21 @@ public class TSPBruteForce {
 			tspAllPossibleRoutes.add(tspRoute);
 		}
 	}
+	
+	/**
+	 * @param startingCity
+	 * @param tspAllPossibleRoutes
+	 * @param distanceMatrix
+	 * This method need is to calculate the best route from brute force approach paths.
+	 */
+	void calculateBestRouteTSP(City startingCity,List<TSPRoute> tspAllPossibleRoutes, double[][] distanceMatrix) {
+		for (TSPRoute tspRoute : tspAllPossibleRoutes) {
+			tspRoute.getTravelRoute().add(0,startingCity);
+			tspRoute.getTravelRoute().add(startingCity);
+			//calculateRouteCost(tspRoute,distanceMatrix);
+		}
+	}
+	
+	
 	
 }

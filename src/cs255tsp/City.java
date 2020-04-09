@@ -1,6 +1,10 @@
 package cs255tsp;
 import java.awt.Point;
 
+/**
+ * @author Angela Wang, Rakesh Gururaj
+ *
+ */
 public class City {
 	private String cityName;
 	private int cityId;

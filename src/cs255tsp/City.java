@@ -43,6 +43,14 @@ public class City {
 	}
 
 	/**
+	 * @param cityName
+	 */
+	public City(String cityName) {
+		//super();
+		this.cityName = cityName;
+	}
+
+	/**
 	 * @return the cityName
 	 */
 	public String getCityName() {

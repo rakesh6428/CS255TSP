@@ -13,6 +13,9 @@ public class TSPBruteForce {
 	private List<String> citiesSelectedUI = new ArrayList<String>();
 	private List<City> citiesSelected;
 	private List<TSPRoute> tspAllPossibleRoutes = new ArrayList<TSPRoute>();
+	private double distanceMatrix[][] = new double[22][22];
+	private double shortestTSPDistance = Double.MAX_VALUE;
+	private TSPRoute shortestTSPRoute;
 	/**
 	 * @param numberofCities
 	 * @param startingCity
@@ -26,6 +29,8 @@ public class TSPBruteForce {
 		initialiseCities(startingCity, citiesSelectedUI);
 	}
 	
+	public TSPBruteForce() {}
+	 
 	void initialiseCities(City startingCity,List<String> citiesSelectedUI) {
 		citiesSelected = new ArrayList<City>();
 		startingCity.setVisited(true);
@@ -74,10 +79,29 @@ public class TSPBruteForce {
 		for (TSPRoute tspRoute : tspAllPossibleRoutes) {
 			tspRoute.getTravelRoute().add(0,startingCity);
 			tspRoute.getTravelRoute().add(startingCity);
-			//calculateRouteCost(tspRoute,distanceMatrix);
+			double thisRouteCost = calculateRouteCost(tspRoute,distanceMatrix);
+			if(thisRouteCost<shortestTSPDistance) {
+				shortestTSPDistance = thisRouteCost;
+				shortestTSPRoute = tspRoute;
+			}
 		}
 	}
 	
+	double calculateRouteCost(TSPRoute tspRoute,double[][] distanceMatrix) {
+		double routeCost = 0;
+		for(int i=0;i<tspRoute.getTravelRoute().size()-1;i++) {
+			routeCost = routeCost+distanceMatrix[tspRoute.getTravelRoute().get(i).getCityId()][tspRoute.getTravelRoute().get(i+1).getCityId()];
+		}
+		return routeCost;
+	}
 	
+	
+//	public static void main(String[] args) {
+//		
+//		TSPBruteForce bForce = new TSPBruteForce();
+//		int n=10;
+//		int total = bForce.calculatePermutationRoutes(n);
+//		System.out.println(total);
+//	}
 	
 }

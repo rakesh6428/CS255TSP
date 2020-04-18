@@ -24,12 +24,6 @@ public class City {
 		this.isVisited = isVisited;
 	}
 
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return "City{" + "cityName:" + cityName + "cityId:" + cityId + "isVisited:" + isVisited + "}";
-	}
-
 	/**
 	 * @param cityName
 	 * @param cityId
@@ -96,7 +90,10 @@ public class City {
 		this.isVisited = isVisited;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "City{" + "cityName:" + cityName + "cityId:" + cityId + "isVisited:" + isVisited + "}";
+	}
 	
 }

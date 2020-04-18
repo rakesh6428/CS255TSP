@@ -35,7 +35,7 @@ public class TSPBruteForce {
 		citiesSelected = new ArrayList<City>();
 		startingCity.setVisited(true);
 		boolean isVisited = false;
-		for(int i=1;i<=citiesSelectedUI.size();i++) {
+		for(int i=0;i<citiesSelectedUI.size();i++) {
 			citiesSelected.add(new City(citiesSelectedUI.get(i), i, isVisited));
 		}
 	}
@@ -44,7 +44,7 @@ public class TSPBruteForce {
 	 * @param numberofCities
 	 * @return the number of permutations of choosing a route.
 	 */
-	int calculatePermutationRoutes(int numberofCities) {
+	long calculatePermutationRoutes(int numberofCities) {
 		return numberofCities == 0 ||numberofCities==1 ? 1 : numberofCities * calculatePermutationRoutes(numberofCities-1);
 	}
 	
@@ -67,6 +67,7 @@ public class TSPBruteForce {
 		else {
 			tspAllPossibleRoutes.add(tspRoute);
 		}
+		//return tspAllPossibleRoutes;
 	}
 	
 	/**

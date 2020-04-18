@@ -87,6 +87,12 @@ public class TSPBruteForce {
 		}
 	}
 	
+	/**
+	 * @param tspRoute
+	 * @param distanceMatrix
+	 * @return 
+	 * This method calculates the cost of each route and supplies the value to calculateBestRouteTSP for finding the best route
+	 */
 	double calculateRouteCost(TSPRoute tspRoute,double[][] distanceMatrix) {
 		double routeCost = 0;
 		for(int i=0;i<tspRoute.getTravelRoute().size()-1;i++) {

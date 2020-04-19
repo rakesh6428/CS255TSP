@@ -23,7 +23,13 @@ public class City {
 		this.cityId = cityId;
 		this.isVisited = isVisited;
 	}
-
+	
+	/** Dummy Constructor
+	 * 
+	 */
+	public City() {	}
+	
+	
 	/**
 	 * @param cityName
 	 * @param cityId
@@ -93,7 +99,12 @@ public class City {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "City{" + "cityName:" + cityName + "cityId:" + cityId + "isVisited:" + isVisited + "}";
+		return " City{ " + " cityName: " + cityName + " cityId: " + cityId + " isVisited: " + isVisited + "}";
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return this.cityName.equals(((City) obj).cityName);
 	}
 	
 }

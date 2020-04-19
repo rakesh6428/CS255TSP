@@ -3,19 +3,27 @@ package cs255tsp;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.security.KeyFactory;
 import java.util.*;
 
+/**
+ * @author Angela Wang, Rakesh Gururaj
+ *
+ */
 public class TSPDriver {
-
+	
+	/**
+	 * @param args
+	 * @throws IOException
+	 * Main Function call
+	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		String citiesFilePath = "/Volumes/SJSU/CS255 Design and Analysis of Algorithms/Final Project/CS255TSP/Dataset/Germany_Cities.txt";
-		String distanceFilePath = "/Volumes/SJSU/CS255 Design and Analysis of Algorithms/Final Project/CS255TSP/Dataset/DistanceMatrix.txt";
-
+		TSPHelper tspHelper = new TSPHelper();
 		ReadCities readCities = new ReadCities();
-		List<String> citiesList = readCities.insertCities(citiesFilePath);
+		List<City> citiesList = readCities.insertCities(TSPHelper.citiesFilePath); //Reads the cities file from the predefined path.
 		ReadDistanceMatrix readDistance = new ReadDistanceMatrix();
-		double[][] distanceMatrix = readDistance.insertDistances(distanceFilePath);
+		double[][] distanceMatrix = readDistance.insertDistances(TSPHelper.distanceFilePath); //Reads the distance matrix from the predefined path.
 		Scanner scanner = new Scanner(System.in);
 		String approach = "Enter the approach to solve Traveling Salesman Problem:\n"+
 							"1. Brute Force Approach\n"+
@@ -26,18 +34,13 @@ public class TSPDriver {
 		scanner.nextLine();
 		System.out.println("Enter the Starting City for the travel");
 		String startingCity = scanner.nextLine();
-		City city = new City(startingCity);
+		scanner.close();
 		
 		switch (choice) {
 		case 1:
-			citiesList.remove(startingCity);
-			TSPBruteForce tspBruteForce = new TSPBruteForce(citiesList.size(),city,citiesList);
-			TSPRoute tspRoute = new TSPRoute();
-			long routePermutations = tspBruteForce.calculatePermutationRoutes(citiesList.size());
-			//List<TSPRoute> tspRoutes = 
-			tspBruteForce.findAllPathsofTSP(tspRoute, citiesList);
-			//tspBruteForce.calculateBestRouteTSP(city, tspRoutes, distanceMatrix);
-			System.out.println("The number of routes that a Salesman can travel from "+startingCity+" is: "+routePermutations);
+			citiesList.remove(new City(startingCity));
+			int cityID = tspHelper.getStartCityID(startingCity, citiesList);
+			new TSPBruteForce(citiesList.size(),new City(startingCity,cityID,true),citiesList,distanceMatrix);
 			break;
 
 		default:

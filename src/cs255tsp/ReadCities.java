@@ -11,20 +11,20 @@ import java.util.Scanner;
  */
 public class ReadCities {
 	
-	List<String> citiesList = new ArrayList<String>();
+	List<City> citiesList = new ArrayList<City>();
 	
 	/**
 	 * @param citiesFilePath - The path of the file. Please specify full path.
 	 * @return List of cities
 	 */
-	List<String> insertCities(String citiesFilePath) {
+	List<City> insertCities(String citiesFilePath) {
 		try {
 			File citiesFile = new File(citiesFilePath);
 			Scanner fileScanner = new Scanner(citiesFile);
 			while (fileScanner.hasNextLine()) {
-				String[] city = fileScanner.nextLine().trim().split(" ");
-				//citiesList.add(new City(city[0], Integer.parseInt(city[1]), false));
-				citiesList.add(city[0]);
+				String[] city = fileScanner.nextLine().trim().split(" ");   //Scan and store each line item of the file in a string.
+				int cityID= Integer.parseInt(city[1]);
+				citiesList.add(new City(city[0], cityID, false));
 			}
 			fileScanner.close();
 			return citiesList;

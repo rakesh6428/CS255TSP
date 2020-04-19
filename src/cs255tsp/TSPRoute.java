@@ -56,14 +56,16 @@ public class TSPRoute {
 	public void setTravelRoute(List<City> travelRoute) {
 		this.travelRoute = travelRoute;
 	}
+	
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		String route = "";
 		if(!travelRoute.isEmpty()) {
 			for (City city : travelRoute) {
-				route = route + city;
-			} 
+				route = route + city.getCityName()+ " --> ";
+			}
+			route = route.substring(0,route.length()-5);
 		}
 		return "TSPRoute{"+ route + "}";
 	}

@@ -1,0 +1,11 @@
+Aachen 0
+Augsburg 1
+Braunschweig 2
+Bremen 3
+Essen 4
+Freiburg 5
+Hamburg 6
+Hof 7
+Karlsruhe 8
+Kassel 9
+Kiel 10

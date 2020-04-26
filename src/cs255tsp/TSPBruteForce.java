@@ -33,8 +33,8 @@ public class TSPBruteForce {
 		System.out.println("The number of routes that a Salesman can travel from " + startingCity + " is: " + numberOfRoutes);
 		findAllPathsofTSP(new TSPRoute(), citiesSelected);
 		calculateBestRouteTSP(startingCity, tspAllPossibleRoutes, distanceMatrix);
-		System.out.println("The Shortest Distance is: " + shortestTSPDistance);
-		System.out.println("The shortest Path is: " + shortestTSPRoute.toString());
+		System.out.println("The Shortest Distance in Brute Force approach is: " + shortestTSPDistance);
+		System.out.println("The shortest Path in Brute Force approach is: " + shortestTSPRoute.toString());
 	}
 
 	/*
@@ -45,6 +45,12 @@ public class TSPBruteForce {
 	 * ArrayList<City>(); startingCity.setVisited(true); boolean isVisited = false;
 	 * for(int i=0;i<citiesSelectedUI.size();i++) { citiesSelected.add(new
 	 * City(citiesSelectedUI.get(i), i, isVisited)); } }
+	 * System.out.println("i:"+tspRoute.getTravelRoute().get(i).getCityId()+"   -- CityName: "+tspRoute.getTravelRoute().get(i).getCityName());
+	 *	System.out.println("i+1:"+tspRoute.getTravelRoute().get(i+1).getCityId()+"   -- CityName: "+tspRoute.getTravelRoute().get(i+1).getCityName());
+	 *System.out.println("i-1:"+tspRoute.getTravelRoute().get(i).getCityId());
+	 *routeCost = routeCost + distanceMatrix[tspRoute.getTravelRoute().get(i).getCityId() - 1][tspRoute.getTravelRoute().get(i + 1).getCityId() - 1];
+	 * 
+	 * 
 	 */
 
 	/**
@@ -111,10 +117,7 @@ public class TSPBruteForce {
 		double routeCost = 0;
 		//System.out.println("Size:"+tspRoute.getTravelRoute().size());
 		for (int i = 0; i < tspRoute.getTravelRoute().size() - 1; i++) {
-//			System.out.println("i:"+tspRoute.getTravelRoute().get(i).getCityId()+"   -- CityName: "+tspRoute.getTravelRoute().get(i).getCityName());
-//			System.out.println("i+1:"+tspRoute.getTravelRoute().get(i+1).getCityId()+"   -- CityName: "+tspRoute.getTravelRoute().get(i+1).getCityName());
-//			System.out.println("i-1:"+tspRoute.getTravelRoute().get(i).getCityId());
-			routeCost = routeCost + distanceMatrix[tspRoute.getTravelRoute().get(i).getCityId() - 1][tspRoute.getTravelRoute().get(i + 1).getCityId() - 1];
+			routeCost = routeCost + distanceMatrix[tspRoute.getTravelRoute().get(i).getCityId()][tspRoute.getTravelRoute().get(i + 1).getCityId()];
 		}
 		return routeCost;
 	}

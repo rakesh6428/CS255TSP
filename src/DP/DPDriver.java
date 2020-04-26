@@ -9,8 +9,8 @@ import java.util.Map;
 //4 3 6 0
 public class DPDriver {
 	public static void main(String[] args) {
-		ReadCityInfo readCityInfo = new ReadCityInfo("/Users/waq/Desktop/cs255-final/CS255TSP/src/DP/Germany_Cities.txt");
-		ReadCityMatrix readCityMatrix = new ReadCityMatrix("/Users/waq/Desktop/cs255-final/CS255TSP/src/DP/DistanceMatrix.txt");
+		ReadCityInfo readCityInfo = new ReadCityInfo("/Volumes/SJSU/CS255 Design and Analysis of Algorithms/Final Project/CS255TSP/Dataset/Germany_Cities.txt");
+		ReadCityMatrix readCityMatrix = new ReadCityMatrix("/Volumes/SJSU/CS255 Design and Analysis of Algorithms/Final Project/CS255TSP/Dataset/DistanceMatrix.txt");
 		
 		int numberofCities = readCityInfo.getNumberofCities();
 		

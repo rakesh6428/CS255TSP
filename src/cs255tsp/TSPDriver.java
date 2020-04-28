@@ -19,6 +19,13 @@ public class TSPDriver {
 		// TODO Auto-generated method stub
 		TSPHelper tspHelper = new TSPHelper();
 		ReadCities readCities = new ReadCities();
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter the path for Cities List: ");
+		TSPHelper.citiesFilePathBF = scanner.nextLine();
+		System.out.println("Enter the path for Distance Matrix: ");
+		TSPHelper.distanceFilePathBF = scanner.nextLine();
+		
 		List<City> citiesList = readCities.insertCities(TSPHelper.citiesFilePathBF); //Reads the cities file from the predefined path for Brute Force (11 Cities).
 		ReadCityInfo readCityInfo = new ReadCityInfo(TSPHelper.citiesFilePath);//Reads the cities file from the predefined path.
 		City startCity = new City("Aachen", 0,false);
@@ -28,7 +35,7 @@ public class TSPDriver {
 		double[][] distanceMatrix = readDistance.insertDistances(TSPHelper.distanceFilePath); //Reads the distance matrix from the predefined path.
 		double[][] distanceMatrixBF = readDistance.insertDistances(TSPHelper.distanceFilePathBF);//Reads the distance matrix from the predefined path for Brute Force (11 Cities).
 		
-		Scanner scanner = new Scanner(System.in);
+		
 		String approach = "Enter the approach to solve Traveling Salesman Problem:\n"+
 							"1. Brute Force Approach\n"+
 							"2. Greedy Approach\n"+

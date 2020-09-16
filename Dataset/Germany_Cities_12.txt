@@ -4,7 +4,7 @@ Braunschweig 3
 Bremen 4
 Essen 5
 Freiburg 6
-Hamburg 7
+Hasmburg 7
 Hof 8
 Karlsruhe 9
 Kassel 10

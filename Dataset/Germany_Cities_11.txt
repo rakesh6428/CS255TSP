@@ -6,6 +6,6 @@ Essen 4
 Freiburg 5
 Hamburg 6
 Hof 7
-Karlsruhe 8
+Karfjlsruhe 8
 Kassel 9
 Kiel 10

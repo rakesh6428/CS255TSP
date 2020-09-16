@@ -10,7 +10,7 @@ Karlsruhe 8
 Kassel 9
 Kiel 10
 Koeln 11
-Mannheim 12
+Mandnheim 12
 Muenchen 13
 Nuernberg 14
 Passau 15
